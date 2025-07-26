@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["app/**", "package.json"]
+    "includes": [
+      "package.json",
+      "vite.config.ts",
+      ".vscode/settings.json",
+      "./app/**/*",
+      "!app/components/ui/**"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -22,21 +28,64 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
       "suspicious": {
         "noArrayIndexKey": "off"
+      },
+      "correctness": {
+        "noEmptyPattern": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "fix": "safe",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cn", "cva"]
+          }
+        }
       }
     }
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "quoteStyle": "double",
+      "trailingCommas": "es5",
+      "semicolons": "always"
     }
   },
   "assist": {
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":URL:"],
+              ":BLANK_LINE:",
+              [":BUN:", ":NODE:"],
+              ":BLANK_LINE:",
+              [":PACKAGE:", ":PACKAGE_WITH_PROTOCOL:"],
+              ":BLANK_LINE:",
+              ["@/lib/**", "@/hooks/**"],
+              ":BLANK_LINE:",
+              ["@/data/**"],
+              ":BLANK_LINE:",
+              ["@/components/**", "@/components/ui/**"],
+              ":BLANK_LINE:",
+              ["@/store/**"],
+              ":BLANK_LINE:",
+              [":ALIAS:"],
+              ":BLANK_LINE:",
+              [":PATH:"],
+              ":BLANK_LINE:",
+              ["@/models/**"]
+            ]
+          }
+        }
       }
     }
   }

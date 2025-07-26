@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.biome": "always",
+    "source.organizeImports.biome": "always"
+  },
+  "[javascript][typescript][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[github-actions-workflow][markdown][xml][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
