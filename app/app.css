@@ -86,7 +86,8 @@ body {
   --color-destructive-foreground: var(--destructive-foreground);
 }
 
-:root {
+:root,
+:root[class~="dark"] {
   --radius: 0.5rem;
   --background: oklch(0.9821 0 0);
   --foreground: oklch(0.2435 0 0);

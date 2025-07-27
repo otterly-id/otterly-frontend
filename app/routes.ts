@@ -7,5 +7,8 @@ import {
 
 export default [
   index("routes/home.tsx"),
-  layout("routes/layout/index.tsx", [route("chat", "routes/chat/index.tsx")]),
+  layout("routes/layout/index.tsx", [
+    route("chat", "routes/chat/index.tsx"),
+    route("chat/:chatId", "routes/chat/details.tsx"),
+  ]),
 ] satisfies RouteConfig;

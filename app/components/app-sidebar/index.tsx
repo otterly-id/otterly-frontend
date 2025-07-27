@@ -1,9 +1,7 @@
-import { IconInnerShadowTop, IconLayoutSidebar } from "@tabler/icons-react";
+import { IconInnerShadowTop } from "@tabler/icons-react";
 
 import { navMain, navUser } from "~/constants/navigations";
-import { cn } from "~/lib/utils";
 
-import { Button } from "../ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -12,7 +10,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "../ui/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
@@ -23,15 +20,11 @@ export function AppSidebar({
 }: React.ComponentProps<typeof Sidebar> & {
   history: { title: string; url: string }[];
 }) {
-  const { toggleSidebar, open } = useSidebar();
-
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem
-            className={cn("flex gap-2", !open && "flex-col gap-1")}
-          >
+          <SidebarMenuItem>
             <SidebarMenuButton
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
@@ -41,20 +34,6 @@ export function AppSidebar({
                 <span className="font-semibold text-base">Otterly Inc.</span>
               </a>
             </SidebarMenuButton>
-            <Button
-              size="icon"
-              className={cn("size-8 cursor-pointer")}
-              variant={open ? "outline" : "ghost"}
-              onClick={toggleSidebar}
-            >
-              <IconLayoutSidebar
-                className={cn(
-                  "transition-all duration-300",
-                  !open && "rotate-180"
-                )}
-              />
-              <span className="sr-only">Trigger</span>
-            </Button>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
