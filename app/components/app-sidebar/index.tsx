@@ -1,4 +1,5 @@
 import { IconInnerShadowTop } from "@tabler/icons-react";
+import { Link } from "react-router";
 
 import { navMain, navUser } from "~/constants/navigations";
 
@@ -18,7 +19,7 @@ export function AppSidebar({
   history,
   ...props
 }: React.ComponentProps<typeof Sidebar> & {
-  history: { title: string; url: string }[];
+  history: { id: string; title: string }[];
 }) {
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -29,10 +30,10 @@ export function AppSidebar({
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="#">
+              <Link to="/chat">
                 <IconInnerShadowTop className="!size-5" />
                 <span className="font-semibold text-base">Otterly Inc.</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

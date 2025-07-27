@@ -4,6 +4,7 @@ import {
   IconCirclePlusFilled,
   IconHistory,
 } from "@tabler/icons-react";
+import { Link } from "react-router";
 
 import {
   SidebarGroup,
@@ -32,8 +33,8 @@ export function NavMain({
     icon?: Icon;
   }[];
   historyItems: {
+    id: string;
     title: string;
-    url: string;
   }[];
 }) {
   return (
@@ -72,12 +73,12 @@ export function NavMain({
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>
-                  {historyItems.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
+                  {historyItems.map((history) => (
+                    <SidebarMenuSubItem key={history.id}>
                       <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
-                          <span>{subItem.title}</span>
-                        </a>
+                        <Link to={`/chat/${history.id}`}>
+                          <span>{history.title}</span>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
